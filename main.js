@@ -110,6 +110,9 @@ let guessSpans = document.querySelectorAll(".letters-guess span");
 // Set Wrong Attempts
 let wrongAttempts = 0;
 
+// Correct Attempts
+let correctAttempts = 0;
+
 // Select The Draw Element
 let theDraw = document.querySelector(".hangman-draw");
 
@@ -136,6 +139,7 @@ document.addEventListener("click", (e) => {
         // Loop On All Guess Spans
         guessSpans.forEach((span, spanIndex) => {
           if (wordIndex === spanIndex) {
+            correctAttempts++;
             span.innerHTML = theClickedLetter;
           }
         });
@@ -163,7 +167,7 @@ document.addEventListener("click", (e) => {
     } else {
       // Play Success Sound
       //   document.getElementById("success").play();
-      endGame();
+      if (correctAttempts === theChosenWord.length) endGame();
     }
   }
 });
