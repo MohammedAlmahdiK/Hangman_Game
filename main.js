@@ -7,6 +7,9 @@ let lettersArray = Array.from(letters);
 // Select Letters Container
 let lettersContainer = document.querySelector(".letters");
 
+// Correct Attempts
+let correctAttempts = 0;
+
 // Generate Letters
 lettersArray.forEach((letter) => {
   // Create Span
@@ -98,6 +101,7 @@ lettersAndSpace.forEach((letter) => {
   if (letter === " ") {
     // Add Class To The Span
     emptySpan.className = "with-space";
+    correctAttempts++;
   }
 
   // Append Span To The Letters Guess Container
@@ -109,9 +113,6 @@ let guessSpans = document.querySelectorAll(".letters-guess span");
 
 // Set Wrong Attempts
 let wrongAttempts = 0;
-
-// Correct Attempts
-let correctAttempts = 0;
 
 // Select The Draw Element
 let theDraw = document.querySelector(".hangman-draw");
